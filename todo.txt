@@ -11,6 +11,7 @@ spinner for recommender...
 
 Medium
 routes to recommender and about page...
+If no match on search-notify user
 
 
 HARD:

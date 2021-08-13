@@ -33,4 +33,4 @@ def recommender(movie_title, data, ml_model, number_of_recommendations):
     for i in indexes: 
         print(dataset_movies["title"][i].where(i!=index)) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
     
-recommender("grudge", matrix_movies_users, knn_model, 5)
+recommender("The man from earth", matrix_movies_users, knn_model, 5)
