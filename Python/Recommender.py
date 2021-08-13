@@ -4,23 +4,25 @@ from sklearn.neighbors import NearestNeighbors
 from fuzzywuzzy import process #String matching
 
 
-#From movies.csv I will only use the columns "movieID" and "title", and I have to specify their datatypes
-#From ratings I need userId and movieId to know which rating came from who to which film. (rating is not on integer-hence the float32)
+#From movies I will only use the columns "movieID" and "title". Had to specify their datatypes
+#From ratings I need "userId" and "movieId" to know who's rating belong to which film. (rating is not an integer-hence the float32)
 dataset_movies = pd.read_csv("Python/data/movies.csv", usecols=["movieId", "title"], dtype={"movieId": "int32", "title":"string"})
 dataset_ratings = pd.read_csv("Python/data/ratings.csv", usecols=["userId", "movieId", "rating"], dtype={"userId": "int32", "movieId": "int32", "rating":"float32"})
 
-#Using the Pandas function "pivot" to create a table (matrix) with users on the x-axis and movies on y, their datapoints are ratings
-movies_and_users = dataset_ratings.pivot(index = "movieId", columns="userId", values="rating").fillna(0)
+#Using the Pandas function "pivot" to create a table (matrix) with users on the x-axis and movies on y, cells inside the table is ratings
+#fillna() function fills out all empty cells with 0.
+movies_and_users = dataset_ratings.pivot(index = "movieId", columns="userId", values="rating").fillna(0) 
 matrix_movies_users = csr_matrix(movies_and_users)
 
-#Using K-nearest neighbour algorithm to classify movies. 
-#I used Euclidian distance to count the distance between vectors
-#Brute Force algorithm to decide nearest neighbor -taking one datapoint and comparing it to all other datapoints, sorting out the 5 nearest
+#Using the K-nearest neighbour algorithm to classify movies based on cheat-sheet from sklearn. 
+#I used Euclidian distance to count the distance between vectors.
+#Brute Force algorithm to decide nearest neighbor =taking one datapoint and comparing it to ALL other datapoints, sorting out the 10 nearest
 knn_model = NearestNeighbors(n_neighbors=10, algorithm="brute", metric='euclidean')
 
-
+#Feeding model with processed data
 knn_model.fit(matrix_movies_users)
 
+#Function that return recommended movies, will be useful in the app
 def recommender(movie_title, data, ml_model, number_of_recommendations):
     '''Function takes in a movie, spits out a list of recommended films'''
     knn_model.fit(data)
