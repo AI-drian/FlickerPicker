@@ -1,4 +1,8 @@
 /* font-family: 'Oswald', sans-serif; */
+
+/* COME HERE AND FIX ME!!! */
+
+
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap");
 
 * {
@@ -6,8 +10,94 @@
 }
 
 body {
-  background-color: azure;
-  color: black;
+  background-color: rgb(10, 24, 24);
+  color: rgb(139, 130, 130);
   font-family: "Oswald", sans-serif;
   margin: 0;
+}
+
+.root{
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgb(10, 24, 24);
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-bar{
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  border: 2px solid  rgb(0, 0, 0);
+  background-color: transparent;
+  border-radius: 50px;
+  color: azure;
+  padding: 0.5rem, 1.5rem;
+}
+
+.search-bar:focus{
+  outline: none;
+}
+
+.movie-container{
+  display: flex;  
+  /*flex-wrap, putting the rows under each other when out of space*/ 
+  flex-wrap: wrap;   
+  justify-content: center;
+}
+
+.movie{
+  background-color: rgb(10, 24, 24);
+  margin: 1rem;
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+}
+
+.movie img{
+  max-width: 100%;
+}
+
+.movie-synopsis{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.movie-info h3{
+  margin: 0; 
+}
+
+.movie-banner{
+  background-color: beige;
+  color: rgb(10, 24, 24);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  max-height: 90%;
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+.movie:hover .movie-banner{
+  transform:translateY(0%);
+}
+
+.tag{
+  background-color: rgb(44, 42, 40);
+  padding:0.3rem;
+  border-radius: 5px;
+}
+.tag.green{
+  color: rgb(0, 196, 0);
+}
+.tag.yellow{
+  color: yellow;
+}
+.tag.red{
+  color: red;
 }
