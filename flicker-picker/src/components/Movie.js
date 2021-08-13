@@ -18,7 +18,8 @@ const setRatingClass = (vote) => {
 
 const Movie = ({title, vote_average, overview, poster_path, release_date}) => (
     <div className ="movie">
-        <img src = {image_API + poster_path} alt={title}/>
+        <img src = {poster_path ? (image_API + poster_path) : 
+            "https://images.unsplash.com/photo-1497514440240-3b870f7341f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=281&q=80"} alt={title}/>
         <div className = "movie-synopsis">
             <h3>{title}</h3> 
             {/* <span>{release_date}</span> */}
