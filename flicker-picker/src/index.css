@@ -10,12 +10,6 @@ body {
   background-color: rgb(10, 24, 24);
   color: rgb(139, 130, 130);
   font-family: "Oswald", sans-serif;
-  margin: 0;
-}
-
-header {
-  padding: 1rem;
-  display: flex;
-  justify-content: flex-end;
+  margin: 0px;
 }
 
