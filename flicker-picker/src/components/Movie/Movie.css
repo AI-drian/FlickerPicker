@@ -69,19 +69,19 @@
     transition-delay:0.6s;
   }
   
-  .tag.green {
+  .tag.good {
     background-color: rgb(0, 196, 0);
     color: rgb(44, 42, 40);
     padding: 0.3rem;
     border-radius: 5px;
   }
-  .tag.yellow {
+  .tag.okey {
     background-color: yellow;
     color: rgb(44, 42, 40);
     padding: 0.3rem;
     border-radius: 5px;
   }
-  .tag.red {
+  .tag.bad {
     background-color: red;
     color: rgb(44, 42, 40);
     padding: 0.3rem;

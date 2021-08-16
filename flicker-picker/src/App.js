@@ -10,8 +10,8 @@ const search_API = "https://api.themoviedb.org/3/search/movie?&api_key=963a336b0
 
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [ movies, setMovies ] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   //Getting the data from API
   useEffect(() => {

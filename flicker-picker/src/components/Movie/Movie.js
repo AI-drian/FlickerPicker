@@ -6,13 +6,13 @@ const image_API = "http://image.tmdb.org/t/p/w500";
 // The if statment is used to put the rating-scores in categories that can be insdividually styled
 const setRatingClass = (vote) => {
     if (vote >= 7.5) {
-        return "green";
+        return "good";
     }
     else if(vote >= 5.5) {
-        return "yellow";
+        return "okey";
     }
     else{
-        return "red";
+        return "bad";
     }
 };
 
