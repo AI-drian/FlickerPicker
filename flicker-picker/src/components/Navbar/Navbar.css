@@ -1,7 +1,7 @@
 
 
 .NavbarItems {
-  background: linear-gradient(90deg, #f3ce13, rgb(0, 0, 0) 100%);
+  background: linear-gradient(90deg, rgb(0, 0, 0), #f3ce13 100%);
   margin-bottom: 20px;
   height: 80px;
   display: flex;
@@ -21,7 +21,7 @@
     grid-gap: 10px;
     text-align: center;
     width:70vw;
-    justify-content: end;
+    justify-content: left;
     margin-right: 2rem;
 }
 
@@ -125,6 +125,6 @@
         transition: 250ms;
     }
     Button{
-        display: none;
+        display:flex;
     }
 }
