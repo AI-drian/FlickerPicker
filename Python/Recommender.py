@@ -9,8 +9,8 @@ from fuzzywuzzy import process #String matching
 dataset_movies = pd.read_csv("Python/data/movies.csv", usecols=["movieId", "title"], dtype={"movieId": "int32", "title":"string"})
 dataset_ratings = pd.read_csv("Python/data/ratings.csv", usecols=["userId", "movieId", "rating"], dtype={"userId": "int32", "movieId": "int32", "rating":"float32"})
 
-#Using the Pandas function "pivot" to create a table (matrix) with users on the x-axis and movies on y, cells inside the table is ratings
-#fillna() function fills out all empty cells with 0.
+#Using the Pandas function to pivot() transform the data so I get users on the x-axis and movies on y-axis, values inside the table is ratings
+#To deal with empty values I use fillna() function to fill out all empty cells with 0.
 movies_and_users = dataset_ratings.pivot(index = "movieId", columns="userId", values="rating").fillna(0) 
 matrix_movies_users = csr_matrix(movies_and_users)
 
@@ -33,4 +33,4 @@ def recommender(movie_title, data, ml_model, number_of_recommendations):
     for i in indexes: 
         print(dataset_movies["title"][i].where(i!=index)) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
     
-recommender("The man from earth", matrix_movies_users, knn_model, 5)
+recommender("batman", matrix_movies_users, knn_model, 5)

@@ -12,7 +12,7 @@ class Navbar extends Component{
     render(){
         return(
                 <nav className="NavbarItems">
-                    <h1 className="navbar-logo">FlickerPicker <i className="fas fa-fast-forward"></i></h1>
+                  <a className="navbar-logo" href="/" >FlickerPicker <i className="fas fa-fast-forward"></i></a>
                     <div className="menu-icon" onClick ={this.handleClick}>
                         <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
                      </div>

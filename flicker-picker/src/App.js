@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar"
 import About from "./components/About/About"
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Recommender from "./components/Recommender/Recommender";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
 
