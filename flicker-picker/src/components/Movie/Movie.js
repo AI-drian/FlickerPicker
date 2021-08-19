@@ -31,9 +31,9 @@ const Movie = ({title, vote_average, overview, poster_path, release_date}) => (
         <div className="movie-banner">
             <h2>{title}</h2>
             <h4>Overview:</h4>
-            <p>{overview}</p>
+            <p className="info-text">{overview}</p>
             <h4>Release date: </h4> 
-            <p>{release_date} </p>
+            <p className="release-date">{release_date} </p>
            
             </div>
     </div>
