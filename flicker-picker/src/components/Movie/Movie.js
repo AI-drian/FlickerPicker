@@ -34,7 +34,6 @@ const Movie = ({title, vote_average, overview, poster_path, release_date}) => (
             <p className="info-text">{overview}</p>
             <h4>Release date: </h4> 
             <p className="release-date">{release_date} </p>
-           
             </div>
     </div>
 );

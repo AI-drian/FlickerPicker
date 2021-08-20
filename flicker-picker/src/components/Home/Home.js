@@ -6,8 +6,8 @@ const API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc
 const search_API = "https://api.themoviedb.org/3/search/movie?&api_key=963a336b03a442a36f37bffcce32b2be&query=";
 
 function Home() {
+    const [searchQuery, setSearchQuery] = useState("");
     const [ movies, setMovies ] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
   
     //Getting the data from API
     useEffect(() => {
@@ -21,7 +21,7 @@ function Home() {
     const handleOnSubmit = (e) => {
       e.preventDefault()
   
-      fetch(search_API + searchTerm)
+      fetch(search_API + searchQuery)
       .then(res => res.json())     
       .then(movieData => {
         setMovies(movieData.results);
@@ -29,14 +29,14 @@ function Home() {
     }; 
   
     const handleOnChange = (e) => {
-      setSearchTerm(e.target.value);
+      setSearchQuery(e.target.value);
     }
 
     return(
         <>
         <div className ="search-bar">
             <form onSubmit={handleOnSubmit}>
-            <input className="search-bar" type="text"  placeholder="Enter movie title..." value={searchTerm} onChange={handleOnChange}></input>  
+            <input className="search-bar" type="text"  placeholder="Enter movie title..." value={searchQuery} onChange={handleOnChange}></input>  
             </form>
           </div>
 
