@@ -19,18 +19,21 @@ matrix_movies_users = csr_matrix(movies_and_users)
 #Brute Force algorithm to decide nearest neighbor =taking one datapoint and comparing it to ALL other datapoints, sorting out the 10 nearest
 knn_model = NearestNeighbors(n_neighbors=10, algorithm="brute", metric='euclidean')
 
-#Feeding model with processed data
-#knn_model.fit(matrix_movies_users)
+#Empty list to to store recommended movies
+recommendations = []
 
 #Function that return recommended movies, will be useful in the app
 def recommender(movie_title, data, ml_model, number_of_recommendations):
-    '''Function takes in a movie, spits out a list of recommended films'''
     knn_model.fit(data)
     index = process.extractOne(movie_title, dataset_movies["title"])[2]
     print("Movie Selected: ", dataset_movies["title"][index], "Index: ", index)
     print("Searching for recommendations...")
     distances, indexes = knn_model.kneighbors(data[index], n_neighbors = number_of_recommendations)
-    for i in indexes: 
-        print(dataset_movies["title"][i].where(i!=index)) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
     
-recommender("Avengers", matrix_movies_users, knn_model, 5)
+    for i in indexes: 
+        recommendations.append((dataset_movies["title"][i].where(i!=index))) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
+    return recommendations
+
+
+recommender("Hulk", matrix_movies_users, knn_model, 5)
+print(recommendations)

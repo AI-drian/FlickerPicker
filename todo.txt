@@ -2,14 +2,14 @@
 To do's:
 
 Easy:
-Add a button for search, clear searchbar after submit...
-Styling to make it look good, animations, hover...
+clear searchbar after submit...
 
+Will be needed:
 spinner for recommender...
 
 Medium
-If no match on search-notify user
-
+If no match on search-notify user, or use filter() in search-bar
 
 HARD:
+Get input from recommender-page into Python function and return it.
 Try and figure out a way to display images of movies that show up as recommended...
