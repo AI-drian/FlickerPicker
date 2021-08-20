@@ -1,6 +1,14 @@
+import Searchbar from "../Searchbar/Searchbar";
+import "./Recommender.css"
+
 const Recommender = () => {
     return ( 
-        <h2>This is the recommender page where magic will happen!</h2>
+        <>
+        <div className="page-title">
+            <h2>Find movies like:</h2>
+        </div>
+        <Searchbar></Searchbar>
+        </>
      );
 }
  

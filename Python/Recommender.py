@@ -1,7 +1,7 @@
 import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
-from fuzzywuzzy import process #String matching
+from fuzzywuzzy import process #For better string matching
 
 
 #From movies I will only use the columns "movieID" and "title". Had to specify their datatypes
@@ -20,7 +20,7 @@ matrix_movies_users = csr_matrix(movies_and_users)
 knn_model = NearestNeighbors(n_neighbors=10, algorithm="brute", metric='euclidean')
 
 #Feeding model with processed data
-knn_model.fit(matrix_movies_users)
+#knn_model.fit(matrix_movies_users)
 
 #Function that return recommended movies, will be useful in the app
 def recommender(movie_title, data, ml_model, number_of_recommendations):
@@ -33,4 +33,4 @@ def recommender(movie_title, data, ml_model, number_of_recommendations):
     for i in indexes: 
         print(dataset_movies["title"][i].where(i!=index)) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
     
-recommender("batman", matrix_movies_users, knn_model, 5)
+recommender("Avengers", matrix_movies_users, knn_model, 5)

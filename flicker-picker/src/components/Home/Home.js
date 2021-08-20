@@ -36,8 +36,7 @@ function Home() {
         <>
         <div className ="search-bar">
             <form onSubmit={handleOnSubmit}>
-            <input className="search-bar" type="text"  placeholder="Enter movie title..." value={searchTerm} onChange={handleOnChange}></input>
-            
+            <input className="search-bar" type="text"  placeholder="Enter movie title..." value={searchTerm} onChange={handleOnChange}></input>  
             </form>
           </div>
 
