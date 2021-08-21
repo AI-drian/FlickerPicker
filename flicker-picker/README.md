@@ -10,3 +10,8 @@ Smash enter to run the app in development mode
 
 ### `(http://localhost:3000)`
 
+
+To start python Server
+new terminal...
+cd Python
+python main.py

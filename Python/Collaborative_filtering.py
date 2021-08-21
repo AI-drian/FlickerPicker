@@ -3,6 +3,7 @@ from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
 from fuzzywuzzy import process #For better string matching
 
+#The choice to use ColFil on this dataset is not optimal due to many empty values...
 
 #From movies I will only use the columns "movieID" and "title". Had to specify their datatypes
 #From ratings I need "userId" and "movieId" to know who's rating belong to which film. (rating is not an integer-hence the float32)
@@ -23,7 +24,7 @@ knn_model = NearestNeighbors(n_neighbors=10, algorithm="brute", metric='euclidea
 recommendations = []
 
 #Function that return recommended movies, will be useful in the app
-def recommender(movie_title, data, ml_model, number_of_recommendations):
+def collaborative_filtering(movie_title, data, ml_model, number_of_recommendations):
     knn_model.fit(data)
     index = process.extractOne(movie_title, dataset_movies["title"])[2]
     print("Movie Selected: ", dataset_movies["title"][index], "Index: ", index)
@@ -34,6 +35,7 @@ def recommender(movie_title, data, ml_model, number_of_recommendations):
         recommendations.append((dataset_movies["title"][i].where(i!=index))) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
     return recommendations
 
-
-recommender("Hulk", matrix_movies_users, knn_model, 5)
+ 
+ #Test
+collaborative_filtering("Hulk", matrix_movies_users, knn_model, 5)
 print(recommendations)
