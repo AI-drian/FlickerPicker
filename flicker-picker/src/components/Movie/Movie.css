@@ -18,6 +18,11 @@
   outline: none;
 }
 
+.search-bar:hover{
+transition: all 0.2s ease-out;
+transform: scale(1.1);
+}
+
 .movie-container {
   background:  linear-gradient(100deg, rgb(41, 39, 39) , rgb(49, 43, 43));
   display: flex;
@@ -62,7 +67,7 @@
 }
 
 .movie-banner {
-  background: rgb(36, 36, 36);
+  background:  linear-gradient(100deg, rgb(73, 73, 73) , rgb(36, 36, 36));
   color: azure;
   border-color: #f3ce13;
   padding: 1rem;
@@ -78,6 +83,7 @@
 .movie:hover .movie-banner {
   transform: translate(0%);
   transition-delay: 0.7s;
+  border-top-left-radius: 50px;
 }
 
 .tag.good {

@@ -1,0 +1,29 @@
+.title{
+   margin:auto;
+   width:30%;
+   border: 5px solid rgb(253, 114, 33); 
+   padding: 10px;
+}
+.title-text{
+    text-align: center;
+    padding: 10px;
+}
+
+.about-content{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    border:5px solid rgb(253, 114, 33);
+    padding: 10px;
+}
+
+.github-link{
+    margin-left: 30%;
+    margin-right: 25%;
+    color:azure;
+    text-decoration: none;
+}
+.github-link:hover{
+    color: rgb(253, 114, 33);
+}

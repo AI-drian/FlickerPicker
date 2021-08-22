@@ -9,11 +9,12 @@ class Searchbar extends Component {
         }
 
     }
-    //Figure out how to get "data" to python, sanic flas django e.g
+    //Figure out how to get "data" to python, sanic flask django e.g
     handleSubmit = (e)=> {
         e.preventDefault()
+        e.target.reset();
         const data = this.state
-        console.log("The full input is: ", data)
+        console.log("The full input is: ", data) //test
 
     }
 
