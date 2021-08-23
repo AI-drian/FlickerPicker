@@ -15,7 +15,6 @@ class Searchbar extends Component {
         e.target.reset();
         const data = this.state
         console.log("The full input is: ", data) //test
-
     }
 
     handleChange = (e)=> {
