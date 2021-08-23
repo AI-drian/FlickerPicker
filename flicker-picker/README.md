@@ -13,5 +13,5 @@ Smash enter to run the app in development mode
 
 To start python Server
 new terminal...
-cd Python
+cd Sanic
 python main.py

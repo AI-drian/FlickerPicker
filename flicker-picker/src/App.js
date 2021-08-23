@@ -2,7 +2,7 @@ import React from "react";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar"
 import About from "./components/About/About"
-import Recommender from "./components/Recommender/Recommender";
+import Recommender from "./components/CollabFilter/Recommender";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
@@ -27,6 +27,9 @@ function App() {
                <About />
               </Route>
               <Route exact path="/recommender">
+               <Recommender />
+              </Route>
+              <Route exact path="/filterbubble">
                <Recommender />
               </Route>
             </Switch>

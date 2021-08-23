@@ -5,8 +5,13 @@ export const MenuItems =[
         cName: "nav-links"
     },
     {
-        title: "Recommender",
+        title: "Discover New",
         url: "recommender",
+        cName: "nav-links"
+    },
+    {
+        title: "Safe bets",
+        url: "filterbubble",
         cName: "nav-links"
     },
 ]

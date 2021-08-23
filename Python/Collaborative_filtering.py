@@ -26,7 +26,7 @@ recommendations = []
 #Function that return recommended movies, will be useful in the app
 def collaborative_filtering(movie_title, data, ml_model, number_of_recommendations):
     knn_model.fit(data)
-    index = process.extractOne(movie_title, dataset_movies["title"])[2]
+    index = process.extractOne(movie_title, dataset_movies["title"])[2]  #Fuzzywuzzy
     print("Movie Selected: ", dataset_movies["title"][index], "Index: ", index)
     print("Searching for recommendations...")
     distances, indexes = knn_model.kneighbors(data[index], n_neighbors = number_of_recommendations)
@@ -37,5 +37,5 @@ def collaborative_filtering(movie_title, data, ml_model, number_of_recommendatio
 
  
  #Test
-collaborative_filtering("Hulk", matrix_movies_users, knn_model, 5)
+collaborative_filtering("Godfather", matrix_movies_users, knn_model, 6)
 print(recommendations)
