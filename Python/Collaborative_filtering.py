@@ -37,5 +37,5 @@ def collaborative_filtering(movie_title, data, ml_model, number_of_recommendatio
 
  
  #Test
-collaborative_filtering("Godfather", matrix_movies_users, knn_model, 6)
+collaborative_filtering("Matrix", matrix_movies_users, knn_model, 5)
 print(recommendations)

@@ -9,7 +9,7 @@ class Searchbar extends Component {
         }
 
     }
-    //Figure out how to get "data" to python, sanic flask django e.g
+    //Figure out how to get "data" to python, sanic and run it through recommenderengine. then return it
     handleSubmit = (e)=> {
         e.preventDefault()
         e.target.reset();
