@@ -5,7 +5,6 @@ const Recommender = () => {
     return ( 
         <>
         <Searchbar></Searchbar>
-        
         </>
      );
 }

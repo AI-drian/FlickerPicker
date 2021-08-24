@@ -9,8 +9,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer  #Produces TF-IDF ma
 from sklearn.metrics.pairwise import linear_kernel #LinearKernel used to calculate cosine similarity score, bcus its fast!
 from fuzzywuzzy import process #For better string matching, didnt get it to work...yet
 
-data1 = pd.read_csv("Python/data/tmdb_5000_credits.csv")
-data2 = pd.read_csv("Python/data/tmdb_5000_movies.csv")
+data1 = pd.read_csv("Sanic/data/tmdb_5000_credits.csv")
+data2 = pd.read_csv("Sanic/data/tmdb_5000_movies.csv")
 
 #Joining the datasets based on Id-column.
 data1.columns = ["id", "title", "cast", "crew"]
@@ -39,7 +39,7 @@ indices = pd.Series(data.index, index=data['title_x']).drop_duplicates()
 #The function for recieving title input and returning recommendations
 recommendations=[]
 
-def recommender(title, COS_SIM=COS_SIM):
+def content_filter(title, COS_SIM=COS_SIM):
     
     #index = process.extractOne(indices[title])[0]   Figure this out with FuzzyWuzzy
     
@@ -54,5 +54,5 @@ def recommender(title, COS_SIM=COS_SIM):
     
     return recommendations
 
-recommender("The Matrix") 
+content_filter("The Matrix") 
 print(recommendations)   

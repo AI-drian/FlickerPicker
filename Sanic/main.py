@@ -1,5 +1,8 @@
 from sanic import Sanic, response as res
 from sanic.response import json
+from Collaborative_filtering import collaborative_filter
+from Content_filtering import content_filter
+
 
 #Source of info    https://scoutapm.com/blog/go-fast-getting-started-with-sanic-for-python
 
