@@ -9,8 +9,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer  #Produces TF-IDF ma
 from sklearn.metrics.pairwise import linear_kernel #LinearKernel used to calculate cosine similarity score, bcus its fast!
 from fuzzywuzzy import process #For better string matching, didnt get it to work...yet
 
-data1 = pd.read_csv("Sanic/data/tmdb_5000_credits.csv")
-data2 = pd.read_csv("Sanic/data/tmdb_5000_movies.csv")
+data1 = pd.read_csv("./data/tmdb_5000_credits.csv")
+data2 = pd.read_csv("./data/tmdb_5000_movies.csv")
 
 #Joining the datasets based on Id-column.
 data1.columns = ["id", "title", "cast", "crew"]
@@ -42,17 +42,15 @@ recommendations=[]
 def content_filter(title, COS_SIM=COS_SIM):
     
     #index = process.extractOne(indices[title])[0]   Figure this out with FuzzyWuzzy
-    
     index = indices[title] #Getting index of the movie that matches title
     SIM_scores = list(enumerate(COS_SIM[index]))  #Finding the similarity scores of all movies with input movie
     SIM_scores = sorted(SIM_scores, key=lambda x: x[1], reverse=True) #Sort based on similarity score...
     SIM_scores = SIM_scores[1:6] #getting the 5 most similar, (disregarding the input)
     
     movie_indices = [i[0] for i in SIM_scores]
-    
     recommendations.append(data["title_y"].iloc[movie_indices])
-    
     return recommendations
 
-content_filter("The Matrix") 
-print(recommendations)   
+# Test
+# content_filter("The Matrix") 
+# print("Content based filtering: \n", recommendations)   

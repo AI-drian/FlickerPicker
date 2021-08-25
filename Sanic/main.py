@@ -17,9 +17,18 @@ async def form(request):
     print(request.args)
     return res.text("Reading Request")
 
-@app.route('/api/json')
+@app.route("/api/json")
 def handle_request(request):
     return res.json({'message': 'Hello world!'})
+
+
+@app.route("/api/contentfilter")
+async def contentfilter(req):
+    recommendations = collaborative_filter("Matrix")
+    return res.string(recommendations)
+
+
+
 
 # start the server
 if __name__ == '__main__':

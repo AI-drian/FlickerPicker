@@ -19,12 +19,12 @@ function Home() {
     }, []);
   
     const handleOnSubmit = (e) => {
-      e.preventDefault()
+      e.preventDefault();
   
       fetch(search_API + searchQuery)
       .then(res => res.json())     
       .then(movieData => {
-        setMovies(movieData.results);
+        setMovies(movieData.results); 
       });
     }; 
   

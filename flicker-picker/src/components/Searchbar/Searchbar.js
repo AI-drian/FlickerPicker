@@ -1,14 +1,18 @@
 import React, {Component} from "react";
 import "./Searchbar.css"
 
+//How to use the API to run python function?...
+const API_python = "http://localhost:5000/api/json";
+
+
 class Searchbar extends Component {
     constructor(props){
         super(props)
         this.state = {
             movieTitle: null
         }
-
     }
+
     //Figure out how to get "data" to python, sanic and run it through recommenderengine. then return it
     handleSubmit = (e)=> {
         e.preventDefault()
