@@ -2,8 +2,9 @@ import React from "react";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar"
 import About from "./components/About/About"
-import Recommender from "./components/CollabFilter/Recommender";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Contentfilter from "./components/ContentFilter/Contentfilter";
+import CollabFilter from "./components/CollabFilter/Collabfilter";
 
 
 
@@ -26,11 +27,11 @@ function App() {
               <Route exact path="/about">
                <About />
               </Route>
-              <Route exact path="/recommender">
-               <Recommender />
+              <Route exact path="/discover">
+               <CollabFilter />
               </Route>
               <Route exact path="/filterbubble">
-               <Recommender />
+               <Contentfilter />
               </Route>
             </Switch>
           </div> 

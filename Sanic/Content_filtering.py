@@ -1,6 +1,3 @@
-#Since this method of filtering is text based a certain degree of NLP will be needed
-#Luckily scikit-learn has some models ready for me!
-
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
@@ -41,7 +38,7 @@ recommendations=[]
 
 def content_filter(title, COS_SIM=COS_SIM):
     
-    #index = process.extractOne(indices[title])[0]   Figure this out with FuzzyWuzzy
+    #index = process.extractOne(indices[title])[0]   Figure this out- FuzzyWuzzy
     index = indices[title] #Getting index of the movie that matches title
     SIM_scores = list(enumerate(COS_SIM[index]))  #Finding the similarity scores of all movies with input movie
     SIM_scores = sorted(SIM_scores, key=lambda x: x[1], reverse=True) #Sort based on similarity score...

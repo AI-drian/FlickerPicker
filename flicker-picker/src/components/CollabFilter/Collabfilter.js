@@ -1,9 +1,10 @@
 import React, {Component} from "react";
+import "./Collabfilter.css"
 
 
-const API_contentfilter = "/filterbubble";
+const API_collabfilter = "/discover";
 
-class ContentFilter extends Component {
+class CollabFilter extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -17,7 +18,7 @@ class ContentFilter extends Component {
         const searchQuery = this.state.movieTitle
         console.log("The full input is: ", searchQuery) //test
 
-        fetch(API_contentfilter)
+        fetch(API_collabfilter)
         .then(res => res.json())     
         .then(recommendations => {
             console.log(recommendations); 
@@ -32,7 +33,7 @@ class ContentFilter extends Component {
           <>
           <form onSubmit={this.handleSubmit}>
            <div>
-              <h2 className="page-title">Filter bubble search: {movieTitle}</h2>
+              <h2 className="page-title">Find similar movies to: {movieTitle}</h2>
               <input  className="search-bar" type="text" placeholder="Enter movie title..." name="movieTitle"></input>
            </div>
           
@@ -43,4 +44,4 @@ class ContentFilter extends Component {
   };
   
    
-  export default ContentFilter;
+  export default CollabFilter;

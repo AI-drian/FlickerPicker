@@ -1,17 +1,17 @@
 export const MenuItems =[
     {
-        title: "About",
-        url: "/about",
-        cName: "nav-links"
-    },
-    {
         title: "Discover New",
-        url: "recommender",
+        url: "discover",
         cName: "nav-links"
     },
     {
         title: "Safe bets",
         url: "filterbubble",
+        cName: "nav-links"
+    },
+    {
+        title: "About",
+        url: "about",
         cName: "nav-links"
     },
 ]

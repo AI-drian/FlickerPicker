@@ -23,7 +23,7 @@ knn_model = NearestNeighbors(n_neighbors=10, algorithm="brute", metric='euclidea
 #Empty list to to store recommended movies
 recommendations = []
 
-#Function that return recommended movies, will be useful in the app
+#Function that return recommended movies
 def collaborative_filter(movie_title):
     knn_model.fit(matrix_movies_users)
     index = process.extractOne(movie_title, dataset_movies["title"])[2]  #Fuzzywuzzy
@@ -36,5 +36,5 @@ def collaborative_filter(movie_title):
     return recommendations
 
 # Test
-# collaborative_filter("Matrix")
+# collaborative_filter("Ringu")
 # print("Collaborative filter: \n", recommendations)
