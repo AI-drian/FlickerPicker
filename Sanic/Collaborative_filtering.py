@@ -2,7 +2,6 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
 from fuzzywuzzy import process #For better string matching
-import json
 
 #From movies I will only use the columns "movieID" and "title". Had to specify their datatypes
 #From ratings I need "userId" and "movieId" to know who's rating belong to which film. (rating is not an integer-hence the float32)

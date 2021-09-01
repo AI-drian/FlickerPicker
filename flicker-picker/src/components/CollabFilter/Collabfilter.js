@@ -34,15 +34,18 @@ class CollabFilter extends Component {
         const {movieTitle} = this.state
 
       return ( 
-          <>
+        <>
           <form onSubmit={this.handleSubmit}>
            <div>
-              <h2 className="page-title">Find similar movies to: </h2>
+              <h2 className="page-title">Find similar movies to: {movieTitle}</h2>
               <input  className="search-bar" type="text" placeholder="Enter movie title..." name="movieTitle" value={movieTitle} onChange={this.handleOnChange}></input>
            </div>
-          
           </form>
-          </>
+
+          <div className="page-title">
+              <h3>Results</h3>
+          </div>
+        </>
       )
       }
   };

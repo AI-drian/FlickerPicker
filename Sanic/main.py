@@ -1,5 +1,4 @@
-from sanic import Sanic, response as res, utils
-from sanic.response import HTTPResponse
+from sanic import Sanic, response as res
 from Collaborative_filtering import collaborative_filter
 from Content_filtering import content_filter
 
@@ -9,15 +8,15 @@ app = Sanic("__name__")
 
 ########### FIX THIS ###########
 
-@app.get('/discover')
-async def collaborative_engine(request):
-    recommendations = collaborative_filter("Ringu") #Change this to the searchquery
+@app.get("/discover/<movieTitle>")
+async def collaborative_engine(request, movieTitle):
+    recommendations = collaborative_filter(movieTitle)
     return res.json(recommendations)
 
 
-@app.get('/filterbubble')
-async def content_engine(request):
-    recommendations = content_filter("The Matrix") #Change this to the searchquery
+@app.get("/filterbubble/<movieTitle>")
+async def content_engine(request, movieTitle):
+    recommendations = content_filter(movieTitle)
     return res.json(recommendations)
 
 

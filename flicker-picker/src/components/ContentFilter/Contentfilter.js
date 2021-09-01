@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 
 
-const API_contentfilter = "/filterbubble";
+const API_contentfilter = "/filterbubble/";
 
 class ContentFilter extends Component {
     constructor(props){
         super(props)
         this.state = {
-            movieTitle: null
+            movieTitle: ""
         }
     }
 
@@ -27,20 +27,23 @@ class ContentFilter extends Component {
         this.setState({movieTitle : e.target.value});
       }
 
-    //Just for the looks
     render(){
         const {movieTitle} = this.state
   
       return ( 
-          <>
+        <>
           <form onSubmit={this.handleSubmit}>
            <div>
               <h2 className="page-title">Filter bubble search: {movieTitle}</h2>
               <input  className="search-bar" type="text" placeholder="Enter movie title..." name="movieTitle" onChange={this.handleOnChange}></input>
            </div>
-          
           </form>
-          </>
+
+          <div className="page-title">
+              <h3>Results</h3>
+
+          </div>
+        </>
       )
       }
   };
