@@ -23,6 +23,9 @@ class ContentFilter extends Component {
             console.log(recommendations); 
         });
     }
+    handleOnChange = (e) => {
+        this.setState({movieTitle : e.target.value});
+      }
 
     //Just for the looks
     render(){
@@ -33,7 +36,7 @@ class ContentFilter extends Component {
           <form onSubmit={this.handleSubmit}>
            <div>
               <h2 className="page-title">Filter bubble search: {movieTitle}</h2>
-              <input  className="search-bar" type="text" placeholder="Enter movie title..." name="movieTitle"></input>
+              <input  className="search-bar" type="text" placeholder="Enter movie title..." name="movieTitle" onChange={this.handleOnChange}></input>
            </div>
           
           </form>

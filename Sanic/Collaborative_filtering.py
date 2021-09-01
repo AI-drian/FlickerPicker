@@ -2,8 +2,7 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
 from fuzzywuzzy import process #For better string matching
-
-#The choice to use ColFil on this dataset is not optimal due to many empty values...
+import json
 
 #From movies I will only use the columns "movieID" and "title". Had to specify their datatypes
 #From ratings I need "userId" and "movieId" to know who's rating belong to which film. (rating is not an integer-hence the float32)
@@ -15,13 +14,10 @@ dataset_ratings = pd.read_csv("./data/ratings.csv", usecols=["userId", "movieId"
 movies_and_users = dataset_ratings.pivot(index = "movieId", columns="userId", values="rating").fillna(0) 
 matrix_movies_users = csr_matrix(movies_and_users)
 
-#Using the K-nearest neighbour algorithm to classify movies based on cheat-sheet from sklearn. 
+#Using the K-nearest neighbour algorithm to classify movies decision made based on cheat-sheet from sklearn. 
 #I used Euclidian distance to count the distance between vectors.
 #Brute Force algorithm to decide nearest neighbor =taking one datapoint and comparing it to ALL other datapoints, sorting out the 10 nearest
 knn_model = NearestNeighbors(n_neighbors=10, algorithm="brute", metric='euclidean')
-
-#Empty list to to store recommended movies
-recommendations = []
 
 #Function that return recommended movies
 def collaborative_filter(movie_title):
@@ -32,9 +28,5 @@ def collaborative_filter(movie_title):
     distances, indexes = knn_model.kneighbors(matrix_movies_users[index], n_neighbors = 5)
     
     for i in indexes: 
-        recommendations.append((dataset_movies["title"][i].where(i!=index))) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
-    return recommendations
-
-# Test
-# collaborative_filter("Ringu")
-# print("Collaborative filter: \n", recommendations)
+        recommendations =((dataset_movies["title"][i].where(i!=index))) #Title instead of ID and avoid comparing the movie to itself (gets a perfect score though :D )
+    return recommendations.to_json()

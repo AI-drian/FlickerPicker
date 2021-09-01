@@ -31,22 +31,21 @@ COS_SIM = linear_kernel(TF_IDF_matrix, TF_IDF_matrix)
 
 #For the function of returning similar movies based on input I need to be able to connect input to movie index
 #For that I will Construct a "reverse map".  (Removing duplicates) 
-indices = pd.Series(data.index, index=data['title_x']).drop_duplicates()
+indexes = pd.Series(data.index, index=data['title_x']).drop_duplicates()
 
 #The function for recieving title input and returning recommendations
-recommendations=[]
 
 def content_filter(title, COS_SIM=COS_SIM):
     
     #index = process.extractOne(indices[title])[0]   Figure this out- FuzzyWuzzy
-    index = indices[title] #Getting index of the movie that matches title
+    index = indexes[title] #Getting index of the movie that matches title
     SIM_scores = list(enumerate(COS_SIM[index]))  #Finding the similarity scores of all movies with input movie
     SIM_scores = sorted(SIM_scores, key=lambda x: x[1], reverse=True) #Sort based on similarity score...
     SIM_scores = SIM_scores[1:6] #getting the 5 most similar, (disregarding the input)
     
-    movie_indices = [i[0] for i in SIM_scores]
-    recommendations.append(data["title_y"].iloc[movie_indices])
-    return recommendations
+    movie_indexes = [i[0] for i in SIM_scores]
+    recommendations=(data["title_y"].iloc[movie_indexes])
+    return recommendations.to_json()
 
 # Test
 # content_filter("The Matrix") 

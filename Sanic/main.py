@@ -1,39 +1,24 @@
-from sanic import Sanic, response as res
-from sanic.response import json
+from sanic import Sanic, response as res, utils
+from sanic.response import HTTPResponse
 from Collaborative_filtering import collaborative_filter
 from Content_filtering import content_filter
-import json
 
 
 app = Sanic("__name__")
-
-
-########### TEST ###########
-@app.route("/")
-async def test(request):
-    return json({"Hello" : "world"})
-
-@app.route("/api/about")
-def handle_request(request):
-    return res.json({'message': 'Hello world!'})
 
 
 ########### FIX THIS ###########
 
 @app.get('/discover')
 async def collaborative_engine(request):
-
-    recommendations = collaborative_filter("The Matrix")
-
-    return (recommendations)
+    recommendations = collaborative_filter("Ringu") #Change this to the searchquery
+    return res.json(recommendations)
 
 
 @app.get('/filterbubble')
 async def content_engine(request):
-
-    recommendations = content_filter("The Matrix")
-
-    return (recommendations)
+    recommendations = content_filter("The Matrix") #Change this to the searchquery
+    return res.json(recommendations)
 
 
 # start the server
